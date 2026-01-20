@@ -8,9 +8,12 @@ fetch("possessions_frozen_v2_generated.json")
     if (!currentId) return;
 
     // 🔑 decide navigation scope
+    // If category is set, show only items in that category.
+    // If not, use the entire items list sorted numerically by id so "ALL"
+    // navigation orders by id (matches the grid's expected ordering).
     const scopedItems = category
       ? items.filter(i => i.category === category)
-      : items;
+      : items.slice().sort((a, b) => (Number(a.id) || 0) - (Number(b.id) || 0));
 
     let currentIndex = scopedItems.findIndex(i => i.id === currentId);
     if (currentIndex === -1) return;
@@ -64,4 +67,3 @@ fetch("possessions_frozen_v2_generated.json")
       }
     });
   });
-
