@@ -81,7 +81,8 @@ img.onclick = () => {
   sessionStorage.setItem("gridScrollY", window.scrollY);
 
   // Build a relative URL so it respects the repo basename on GitHub Pages
-  let href = `./item.html?id=${encodeURIComponent(item.id)}`;
+ window.location.href =
+  `./item.html?id=${item.id}&category=${encodeURIComponent(item.category)}`;
 
   // ONLY pass category if we are in a category view
   if (activeCategory) {
