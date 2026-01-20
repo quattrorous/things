@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  padding: 16px;
+  background: #f2f2f2;
+  font-family: system-ui, sans-serif;
+}
+
+/* FILTER BAR */
+#filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#filters button {
+  background: none;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+/* DARKENED PASTEL CATEGORY COLORS */
+button.books-and-print { color: #8fb1a2; }
+button.technology { color: #8ea6c2; }
+button.home { color: #c49782; }
+button.objects { color: #b9a883; }
+button.clothing { color: #b07a92; }
+button.sports-and-outdoors { color: #4d663c; }
+button.bags { color: #9b8fb8; }
+button.paper-and-documents { color: #9aa5ad; }
+button.art-and-media-objects { color: #a08fb8; }
+button.furniture { color: #b2a89a; }
+button.personal-care { color: #93b2a6; }
+button.stationery { color: #b28a8a; }
+button.tools-and-hardware { color: #8aa8b2; }
+button.cds { color: #fba0e3; }
+button.all { color: #ff0000; }
+
+#filters button.all {
+  color: #ff0000; /* same as books-and-print, for example */
+}
+
+
+/* GRID */
+#grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+}
+
+#grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #ccc;
+}
+
+
+body {
+  margin: 0;
+  background: #fff;
+}
+/* VIEWER LAYOUT */
+#viewer {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* IMAGE CONSTRAINT */
+.image-wrap {
+  max-width: 45vw;
+  max-height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
