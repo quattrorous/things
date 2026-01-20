@@ -77,12 +77,12 @@ fetch("possessions_frozen_v2_generated.json")
         img.loading = "lazy";
 
 // inside render(list) -> img.onclick
+// inside render(list) -> img.onclick
 img.onclick = () => {
   sessionStorage.setItem("gridScrollY", window.scrollY);
 
   // Build a relative URL so it respects the repo basename on GitHub Pages
- window.location.href =
-  `./item.html?id=${item.id}&category=${encodeURIComponent(item.category)}`;
+  let href = `./item.html?id=${encodeURIComponent(item.id)}`;
 
   // ONLY pass category if we are in a category view
   if (activeCategory) {
