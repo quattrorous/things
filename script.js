@@ -76,19 +76,20 @@ fetch("possessions_frozen_v2_generated.json")
         img.alt = item.title;
         img.loading = "lazy";
 
-        img.onclick = () => {
-          sessionStorage.setItem("gridScrollY", window.scrollY);
+// inside render(list) -> img.onclick
+img.onclick = () => {
+  sessionStorage.setItem("gridScrollY", window.scrollY);
 
-          const url = new URL("item.html", window.location.origin);
-          url.searchParams.set("id", item.id);
+  // Build a relative URL so it respects the repo basename on GitHub Pages
+  let href = `./item.html?id=${encodeURIComponent(item.id)}`;
 
-          // ONLY pass category if we are in a category view
-          if (activeCategory) {
-            url.searchParams.set("category", activeCategory);
-          }
+  // ONLY pass category if we are in a category view
+  if (activeCategory) {
+    href += `&category=${encodeURIComponent(activeCategory)}`;
+  }
 
-          window.location.href = url.toString();
-        };
+  window.location.href = href;
+};
 
         grid.appendChild(img);
       });
