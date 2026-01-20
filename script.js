@@ -77,18 +77,20 @@ fetch("possessions_frozen_v2_generated.json")
         img.loading = "lazy";
 
 // inside render(list) -> img.onclick
-// inside render(list) -> img.onclick
 img.onclick = () => {
   sessionStorage.setItem("gridScrollY", window.scrollY);
 
-  // Build a relative URL so it respects the repo basename on GitHub Pages
+  // debug: show what activeCategory and item.category are at click time
+  console.log("[grid click] activeCategory:", activeCategory, " item.category:", item.category);
+
+  // Build a relative URL and only append category if the grid is currently filtered
   let href = `./item.html?id=${encodeURIComponent(item.id)}`;
 
-  // ONLY pass category if we are in a category view
   if (activeCategory) {
     href += `&category=${encodeURIComponent(activeCategory)}`;
   }
 
+  console.log("[grid click] navigating to:", href);
   window.location.href = href;
 };
 
